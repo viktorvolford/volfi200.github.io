@@ -1,0 +1,335 @@
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+	margin: 0;
+	font-weight: 300;
+	position: relative;	
+	background-color: black;
+}
+
+body::after {
+	content: "";
+	background-image: url(img/lanyok.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	opacity: 1;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
+  }
+
+h1{
+	margin: 0 0 20px 0;
+}
+
+/* ------ fejléc ------- */
+
+header{
+	background: #FFF787;
+	text-align: center;
+	width: 100%;
+	z-index: 999;
+	position: relative;
+}
+
+
+header a img{
+	height:100px;
+}
+
+.nav-toggle{
+	display: none;
+}
+
+.nav-toggle:checked ~ nav{
+	transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a{
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav-toggle-label{
+	top: 0;
+	left: 0;
+	position: absolute;
+	margin-left: 1em;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	width: 2em;
+	display: block;
+	background: #807E6A;
+	height: 3px;
+	border-radius: 10px;
+	position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+	content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before{
+	bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+	top: 7px;
+}
+
+nav {
+	transform: scale(1,0);
+	position: absolute;
+	text-align: left;
+	background-color: #FFF787;
+	width: 100%;
+	transition: transform 400ms ease-in-out;
+	transform-origin: top;
+	z-index: 999;
+}
+
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li{
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+nav a{
+	color: #807C44;
+	font-family: 'Lobster', cursive;
+	font-weight: 300;
+	font-size: 30px;
+	text-decoration: none;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover{
+	color: #565914;
+}
+
+@media screen and (min-width: 1000px)
+{
+	.nav-toggle-label{
+		display: none;
+	}
+	
+	header{
+		display: grid;
+		grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+	}
+	
+	.logo{
+		grid-column: 2 / 3;
+	}
+
+	nav{
+		all: unset;
+		grid-column: 3 / 4;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	nav a{
+		opacity: 1;
+		position: relative;
+	}
+
+	nav ul{
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	nav li{
+		margin-bottom: 0;
+		margin-left: 1.5em;
+	}
+
+	nav a::before{
+		content:'';
+		display: block;
+		height: 5px;
+		background-color:#565914;
+		position: absolute;
+		top: -0.7em;
+		left: 0;
+		right: 0;
+		transform: scale(0,1);
+		transition: transform ease-in-out 250ms;
+		transform-origin: left;
+	}
+
+	nav a:hover::before{
+		transform: scale(1,1);
+		
+	}
+}
+
+
+/* ------ EDDIG --------- */
+
+
+/* ------ törzs --------- */
+
+.torzs{
+	background-color: yellowgreen;
+	margin-top: 600px;
+	padding: 25px;
+	position: relative;
+	clear: both;
+}
+
+.torzs::before, .torzs::after{
+	content: '';
+	width: 50vw;
+	height: 100px;
+	background-color: yellowgreen;
+	position: absolute;
+	
+}
+
+.torzs::before{
+	top: -100px;
+	left: 0;
+	clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.torzs::after{
+	top: -100px;
+	right: 0;
+	clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.torzs #read-more{
+	font-family: 'Lobster', cursive;
+	font-size: 5vw;
+	position: absolute;
+	top: -17vh;
+	left: 37vw;
+	text-decoration: none;
+	color: white;
+}
+
+.torzs #read-more:hover{
+	color: #e6e5e3;
+	text-shadow: 5px 5px rgba(0,0,0,0.7);
+}
+
+main{
+	background-color: #FFFCD4;
+	border: 2px solid #807C44;
+	border-radius: 25px;
+	font-family: 'Chilanka', cursive;
+	position: relative;
+	clear: both;
+	padding-top: 20px;
+	z-index: 5;
+
+}
+
+.ask-me{
+	position: sticky;
+	bottom: 30px;
+	background-color: rgb(141, 206, 89);
+	width: 7vw;
+	height: 7vw;
+	border-radius: 50%;
+	font-size: 5vw;
+	display: grid;
+	place-items: center;
+	margin: 10px 15px 10px auto;
+	text-decoration: none;
+	color: black;
+}
+
+.ask-me:hover{
+	box-shadow: 0 0 10px 5px rgb(93, 145, 52);
+}
+
+main section{
+	padding: 3vh 3vw;
+}
+
+main section h1{
+	text-transform: uppercase;
+	text-shadow: 1px 2px rgba(153,148,44,0.5);
+	padding-left: 4vw;
+	font-size: 5vh;
+}
+
+hr{
+	margin: 3vh 15vw;
+	border: 3px solid rgba(153,148,44,0.7);
+	border-radius: 10px;
+}
+
+.flex-container{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: baseline;
+}
+
+.flex-container img{
+	margin: 10px;
+	transition: transform .2s; /* Animation */
+}
+
+.flex-container img:hover{
+	transform: scale(1.5);
+}
+
+/* ------ EDDIG --------- */
+
+/* ------ élőláb -------- */
+
+footer{
+	height: 100px;
+	background-color: #262914;
+	color: #8e9469;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	clear: both;
+	position: relative;
+}
+
+footer::before{
+	height: 40px;
+	width: 40px;
+	transform: rotate(45deg);
+	background-color: yellowgreen;
+	position: absolute;
+	top:-21px;
+	left: 50%;
+	content: '';
+	z-index: 1;
+}
+
+
+/* ------ EDDIG --------- */
+
